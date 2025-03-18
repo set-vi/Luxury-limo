@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #000, #222);
+  color: #fff;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 0;
+  box-shadow: 0px 4px 10px rgba(212, 175, 55, 0.3);
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Adjust for mobile */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+header {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+header img.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(212, 175, 55, 0.5);
+  display: inline-block;
+  margin-top: 20vh;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  color: #e0b000;
+  font-size: 4em;
+  font-weight: bold;
+  text-shadow: 0px 0px 20px rgba(224, 176, 0, 0.8);
+}
+
+/* Main Content */
+main {
+  margin-top: 80px;
+}
+
+.booking form {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(212, 175, 55, 0.5);
+  position: relative;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.95);
+  padding: 25px;
+  text-align: left;
+  color: #fff; /* Changed from yellow to white */
+  font-size: 1.3em;
+  border-top: 2px solid #e0b000; /* If you want to keep the yellow border, leave it */
+}
+/* Ensure the 'Last Updated' text is at the bottom of the details section */
+#footer-terms details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the 'Last Updated' text */
+#footer-terms details p:last-child {
+  font-size: 0.9em; /* Smaller font size */
+  color: #ccc; /* Light gray color for distinction */
+  text-align: left; /* Left-aligns the text */
+  margin-top: 20px; /* Adds space above the 'Last Updated' text */
+  margin-bottom: 0; /* Optional: Adjust spacing below it */
+}
+
+}
+/* Confirmation Modal */
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #e0b000;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Adjust Navigation for Mobile */
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  #mobile-menu-toggle {
+    display: block;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  #nav-links a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* Hero Section Adjustments */
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  header p {
+    font-size: 1.2em;
+  }
+
+  .hero-content {
+    padding: 30px;
+  }
+
+  /* Booking Form Styling */
+  .booking form {
+    padding: 20px;
+  }
+
+  /* Price Breakdown Section */
+  #price-breakdown {
+    font-size: 0.9em;
+  }
+}
+
+/* Focused Form Field Styling */
+.booking input:focus, .booking select:focus, .booking textarea:focus {
+  border-color: #e0b000;
+  outline: none;
+}
+
+/* Button Hover Effect */
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #b9972e, #e0b000);
+}
