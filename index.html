@@ -753,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Form submission handling
   bookingForm.addEventListener("submit", function (e) {
     if (!bookingForm.checkValidity()) {
-      e.preventDefault();
+     e.preventDefault(); // Stop default Formspree action
     } else {
   alert("Form submitted! Proceeding to payment...");
 }
@@ -768,19 +768,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = parseFloat(document.getElementById('total-price').textContent);
     return actions.order.create({
       purchase_units: [{
-        amount: {
-          value: total.toFixed(2)
-        }
+        amount: { value: total.toFixed(2) }
       }]
     });
   },
   onApprove: function(data, actions) {
     return actions.order.capture().then(function(details) {
       alert('Payment successful! Thank you, ' + details.payer.name.given_name);
+
+      // Now send the form data to Formspree after payment
+      bookingForm.submit();
     });
   }
 }).render('#paypal-button-container');
-
 </script>
 
 </body>
