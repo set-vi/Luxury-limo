@@ -521,15 +521,13 @@
       <button type="submit" id="submit-button" disabled>Submit Booking</button>
       <!-- PayPal Button Container -->
 <div id="paypal-button-container" style="display: none; margin-top: 20px;"></div>
-
-      </div>
     </form>
   </section>
 
   <!-- About Us Section -->
   <section id="about" class="about fade-in">
     <h2>About Us</h2>
-    <p>Luxury Limousine Service is dedicated to providing premium transportation experiences with attention to detail, punctuality, and safety. Our fleet of vehicles and experienced drivers ensure every ride is comfortable and elegant. Trust us to deliver a first-class experience every time.</p>
+    <p>Superb Executive Transportation is dedicated to providing premium transportation experiences with attention to detail, punctuality, and safety. Our fleet of vehicles and experienced drivers ensure every ride is comfortable and elegant. Trust us to deliver a first-class experience every time.</p>
   </section>
 
   <!-- Testimonials Section -->
@@ -552,7 +550,7 @@
     <h2>Superb Executive Transportation</h2>
   </div>
   <p>Contact us: <a href="tel:3406428686" style="color:#e0b000; text-decoration: none;">340-642-8686</a> | Email: <a href="mailto:setlimovi@gmail.com" style="color:#e0b000; text-decoration: none;">setlimovi@gmail.com</a></p>
-  <</footer>
+  </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -714,7 +712,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Inline error message handling for booking form
-  const bookingForm = document.getElementById("booking-form");
   const inputs = bookingForm.querySelectorAll("input, select, textarea");
   inputs.forEach(input => {
     input.addEventListener("blur", function() {
@@ -755,9 +752,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!bookingForm.checkValidity()) {
      e.preventDefault(); // Stop default Formspree action
     } else {
-  alert("Form submitted! Proceeding to payment...");
-}
-
+ }
   });
 });
 </script>
@@ -775,7 +770,7 @@ document.addEventListener("DOMContentLoaded", function () {
   onApprove: function(data, actions) {
     return actions.order.capture().then(function(details) {
       alert('Payment successful! Thank you, ' + details.payer.name.given_name);
-
+ const bookingForm = document.getElementById("booking-form");
       // Now send the form data to Formspree after payment
       bookingForm.submit();
     });
