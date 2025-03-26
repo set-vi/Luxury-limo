@@ -392,7 +392,8 @@
   <!-- Booking Section -->
   <section id="book" class="booking fade-in">
     <h2>Book Your Ride</h2>
-    <form aria-label="Booking Form" id="booking-form" novalidate>
+    <form action="https://formspree.io/f/xldjlogv" method="POST" aria-label="Booking Form" id="booking-form">
+
       <!-- Date and Time -->
       <label for="booking-date">Select a Date</label>
       <input type="date" id="booking-date" name="booking-date" placeholder="Select booking date" required aria-required="true">
@@ -754,9 +755,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!bookingForm.checkValidity()) {
       e.preventDefault();
     } else {
-  alert("Form submitted! Proceeding to payment...");
-}
-
+      e.preventDefault(); // Remove this line when integrating with backend/payment
+      alert("Form submitted! Proceeding to payment...");
+    }
   });
 });
 </script>
