@@ -682,6 +682,8 @@ document.addEventListener("DOMContentLoaded", function () {
   roundTrip.addEventListener("change", calculatePrice);
   document.getElementById("child-seat").addEventListener("change", calculatePrice);
   hoursRequested.addEventListener("input", calculatePrice);
+pickup.addEventListener("change", calculatePrice);
+dropoff.addEventListener("change", calculatePrice);
 
   // Pickup location change events
   pickup.addEventListener("change", function () {
