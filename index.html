@@ -392,7 +392,7 @@
   <!-- Booking Section -->
   <section id="book" class="booking fade-in">
     <h2>Book Your Ride</h2>
-    <form action="https://formspree.io/f/meoazyoy" method="POST" id="booking-form">
+    <form action="https://formspree.io/f/xldjlogv" method="POST" aria-label="Booking Form" id="booking-form">
 
       <!-- Date and Time -->
       <label for="booking-date">Select a Date</label>
@@ -521,13 +521,14 @@
       <button type="submit" id="submit-button" disabled>Submit Booking</button>
       <!-- PayPal Button Container -->
 <div id="paypal-button-container" style="display: none; margin-top: 20px;"></div>
+
     </form>
   </section>
 
   <!-- About Us Section -->
   <section id="about" class="about fade-in">
     <h2>About Us</h2>
-    <p>Superb Executive Transportation is dedicated to providing premium transportation experiences with attention to detail, punctuality, and safety. Our fleet of vehicles and experienced drivers ensure every ride is comfortable and elegant. Trust us to deliver a first-class experience every time.</p>
+    <p>Luxury Limousine Service is dedicated to providing premium transportation experiences with attention to detail, punctuality, and safety. Our fleet of vehicles and experienced drivers ensure every ride is comfortable and elegant. Trust us to deliver a first-class experience every time.</p>
   </section>
 
   <!-- Testimonials Section -->
@@ -550,7 +551,7 @@
     <h2>Superb Executive Transportation</h2>
   </div>
   <p>Contact us: <a href="tel:3406428686" style="color:#e0b000; text-decoration: none;">340-642-8686</a> | Email: <a href="mailto:setlimovi@gmail.com" style="color:#e0b000; text-decoration: none;">setlimovi@gmail.com</a></p>
-  </footer>
+  <</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -563,12 +564,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let now = new Date();
   now.setMinutes(0,0,0);
   bookingTime.value = now.toTimeString().slice(0,5);
-  
+  checkFormValidity(); // <- Add this here to trigger the button visibility check immediately
+
   // Mobile menu toggle
   const mobileToggle = document.getElementById("mobile-menu-toggle");
   const navLinks = document.getElementById("nav-links");
   mobileToggle.addEventListener("click", function() {
     navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
+  
   });
 
   // Elements for dynamic behavior in booking form
@@ -712,6 +715,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Inline error message handling for booking form
+  const bookingForm = document.getElementById("booking-form");
   const inputs = bookingForm.querySelectorAll("input, select, textarea");
   inputs.forEach(input => {
     input.addEventListener("blur", function() {
@@ -750,9 +754,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Form submission handling
   bookingForm.addEventListener("submit", function (e) {
     if (!bookingForm.checkValidity()) {
-     e.preventDefault(); // Stop default Formspree action
+      e.preventDefault();
     } else {
- }
+      e.preventDefault(); // Remove this line when integrating with backend/payment
+      alert("Form submitted! Proceeding to payment...");
+    }
   });
 });
 </script>
@@ -763,19 +769,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = parseFloat(document.getElementById('total-price').textContent);
     return actions.order.create({
       purchase_units: [{
-        amount: { value: total.toFixed(2) }
+        amount: {
+          value: total.toFixed(2)
+        }
       }]
     });
   },
   onApprove: function(data, actions) {
     return actions.order.capture().then(function(details) {
       alert('Payment successful! Thank you, ' + details.payer.name.given_name);
- const bookingForm = document.getElementById("booking-form");
-      // Now send the form data to Formspree after payment
-      bookingForm.submit();
     });
   }
 }).render('#paypal-button-container');
+
 </script>
 
 </body>
