@@ -551,7 +551,7 @@
     <h2>Superb Executive Transportation</h2>
   </div>
   <p>Contact us: <a href="tel:3406428686" style="color:#e0b000; text-decoration: none;">340-642-8686</a> | Email: <a href="mailto:setlimovi@gmail.com" style="color:#e0b000; text-decoration: none;">setlimovi@gmail.com</a></p>
-  <</footer>
+  </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -564,7 +564,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let now = new Date();
   now.setMinutes(0,0,0);
   bookingTime.value = now.toTimeString().slice(0,5);
-  checkFormValidity(); // <- Add this here to trigger the button visibility check immediately
 
   // Mobile menu toggle
   const mobileToggle = document.getElementById("mobile-menu-toggle");
@@ -718,7 +717,9 @@ dropoff.addEventListener("change", calculatePrice);
 
   // Inline error message handling for booking form
   const bookingForm = document.getElementById("booking-form");
-  const inputs = bookingForm.querySelectorAll("input, select, textarea");
+const inputs = bookingForm.querySelectorAll("input, select, textarea");
+checkFormValidity(); // ✅ Now runs after bookingForm is defined
+
   inputs.forEach(input => {
     input.addEventListener("blur", function() {
       if (!input.checkValidity()) {
@@ -738,19 +739,21 @@ dropoff.addEventListener("change", calculatePrice);
     });
   });
 
-  // Form validation and enabling submit button
-  const submitButton = document.getElementById("submit-button");
-  const paypalButtonContainer = document.getElementById("paypal-button-container");
+ <!-- JavaScript Form Validation and Submit Handling -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Auto-fill booking date and time
+  const bookingDate = document.getElementById("booking-date");
+  const today = new Date().toISOString().split('T')[0];
+  bookingDate.setAttribute("min", today);
+  bookingDate.value = today;
+  const bookingTime = document.getElementById("booking-time");
+  let now = new Date();
+  now.setMinutes(0,0,0);
+  bookingTime.value = now.toTimeString().slice(0,5);
 
-  function checkFormValidity() {
-    if (bookingForm.checkValidity()) {
-      submitButton.disabled = false;
-      paypalButtonContainer.style.display = "block";
-    } else {
-      submitButton.disabled = true;
-      paypalButtonContainer.style.display = "none";
-    }
-  }
+  // Form validity check
+  checkFormValidity(); // safe now
   bookingForm.addEventListener("input", checkFormValidity);
 
   // Form submission handling
@@ -764,28 +767,39 @@ dropoff.addEventListener("change", calculatePrice);
   });
 });
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=H2V6NPSKP8W3Y&components=buttons"></script>
-<script>
-  paypal.Buttons({
-  createOrder: function(data, actions) {
-    const total = parseFloat(document.getElementById('total-price').textContent);
-    return actions.order.create({
-      purchase_units: [{
-        amount: {
-          value: total.toFixed(2)
-        }
-      }]
-    });
-  },
-  onApprove: function(data, actions) {
-  return actions.order.capture().then(function(details) {
-    alert('Payment successful! Thank you, ' + details.payer.name.given_name);
-    document.getElementById('booking-form').submit(); // <- this sends the form to Formspree
-  });
-}
-}).render('#paypal-button-container');
 
+<!-- Load PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=H2V6NPSKP8W3Y&components=buttons"
+        onload="initPayPal()"
+        onerror="console.error('Failed to load PayPal SDK.')">
 </script>
+
+<!-- Initialize PayPal Buttons -->
+<script>
+  function initPayPal() {
+    if (typeof paypal !== 'undefined') {
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          const total = parseFloat(document.getElementById('total-price').textContent);
+          return actions.order.create({
+            purchase_units: [{
+              amount: { value: total.toFixed(2) }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Payment successful! Thank you, ' + details.payer.name.given_name);
+            document.getElementById('booking-form').submit();
+          });
+        }
+      }).render('#paypal-button-container');
+    } else {
+      console.error("PayPal SDK not loaded properly.");
+    }
+  }
+</script>
+
 
 </body>
 </html>
