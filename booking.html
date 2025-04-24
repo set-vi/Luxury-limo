@@ -3,452 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Luxury Limousine Service offering executive transportation for events, airport transfers, and more. Experience luxury and comfort.">
-  <meta property="og:title" content="Luxury Limousine Service">
-  <meta property="og:description" content="Experience premium executive transportation with attention to detail, safety, and style.">
-  <meta property="og:image" content="luxury-limo.webp">
-  <meta property="og:url" content="https://www.yourdomain.com">
-  <meta name="twitter:title" content="Luxury Limousine Service">
-  <meta name="twitter:description" content="Experience premium executive transportation with attention to detail, safety, and style.">
-  <meta name="twitter:image" content="luxury-limo.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>Luxury Limousine Service</title>
-  
-  <!-- JSON-LD Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Superb Executive Transportation",
-    "telephone": "340-642-8686",
-    "url": "https://www.yourdomain.com",
-    "description": "Luxury Limousine Service offering executive transportation for events, airport transfers, and more."
-  }
-  </script>
-  
+  <title>Book Now - Superb Executive Transportation</title>
   <style>
-    /* General Styles */
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #000, #222);
+      font-family: 'Arial', sans-serif;
+      background: #000;
       color: #fff;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    /* Navigation Bar */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 15px 0;
-      box-shadow: 0px 4px 10px rgba(212, 175, 55, 0.3);
-      z-index: 1000;
-    }
-    .nav-container {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    #nav-links a {
-      color: #e0b000;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2em;
-      margin: 0 20px;
-      transition: all 0.3s ease-in-out;
-      position: relative;
-    }
-    #nav-links a::after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 3px;
-      background: #e0b000;
-      transition: width 0.3s ease-in-out;
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    #nav-links a:hover::after {
-      width: 100%;
-    }
-    /* Mobile Menu */
-    #mobile-menu-toggle {
-      display: none;
-      font-size: 1.5em;
-      background: none;
-      border: none;
-      color: #e0b000;
-      cursor: pointer;
-    }
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
-    /* Hero Section */
-    header {
-      position: relative;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden;
-    }
-    header img.hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    .hero-content {
-      position: relative;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 50px;
-      border-radius: 12px;
-      box-shadow: 0px 6px 20px rgba(212, 175, 55, 0.5);
-      display: inline-block;
-      margin-top: 20vh;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      color: #e0b000;
-      font-size: 4em;
-      font-weight: bold;
-      text-shadow: 0px 0px 20px rgba(224, 176, 0, 0.8);
-    }
-    header p {
-      font-size: 1.6em;
-      color: #fff;
-      max-width: 800px;
-      margin: auto;
-    }
-    .hero-content .btn {
-      display: inline-block;
-      padding: 15px 40px;
-      background: linear-gradient(145deg, #e0b000, #b9972e);
-      color: #000;
-      font-weight: bold;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0px 6px 20px rgba(212, 175, 55, 0.7);
-      margin-top: 20px;
-    }
-    .hero-content .btn:hover {
-      background: linear-gradient(145deg, #b9972e, #e0b000);
-      transform: scale(1.05);
-    }
-    /* Sections */
-    main {
-      margin-top: 80px;
-    }
-    section {
-      padding: 60px 20px;
-    }
-    section h2 {
-      color: #e0b000;
-      margin-bottom: 20px;
-      font-size: 2.5em;
-      text-align: center;
-    }
-    /* Services Section */
-    .services {
-      text-align: center;
-    }
-    .service-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 800px;
-      box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.5);
-    }
-    /* Why Choose Us Section */
-    .why-choose {
-      text-align: center;
-    }
-    .choose-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      margin: 20px auto;
-      border-radius: 12px;
-      max-width: 800px;
-      box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.5);
-    }
-    /* Booking Section */
-    .booking {
-      text-align: center;
-    }
-    .booking form {
-      max-width: 600px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.08);
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0px 6px 20px rgba(212, 175, 55, 0.5);
-      position: relative;
-    }
-    .booking label {
-      display: block;
-      text-align: left;
-      margin-bottom: 5px;
-      font-size: 1.1em;
-    }
-    .booking input, .booking select, .booking textarea {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: 2px solid #e0b000;
-      background: #222;
-      color: #fff;
-      font-size: 1.1em;
-      box-sizing: border-box;
-    }
-    .booking input::placeholder,
-    .booking textarea::placeholder {
-      color: #ccc;
-    }
-    .error-message {
-      color: red;
-      font-size: 0.9em;
-      margin-top: -15px;
-      margin-bottom: 15px;
-      display: block;
-    }
-    /* Price Breakdown */
-    #price-breakdown {
-      text-align: left;
-      margin: 20px 0;
-    }
-    /* Footer */
-    footer {
-      background: rgba(0, 0, 0, 0.95);
-      padding: 25px;
-      text-align: center;
-      color: #e0b000;
-      font-size: 1.3em;
-      border-top: 2px solid #e0b000;
-    }
-    
-    /* Confirmation Modal */
-    .confirmation-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
-      align-items: center;
     }
-
-    .modal-content {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
+    .container {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+      width: 100%;
+      max-width: 500px;
+    }
+    h1 {
+      color: #d4af37;
       text-align: center;
+      margin-bottom: 20px;
     }
-
-    .modal-content button {
-      margin: 10px;
-      padding: 10px 20px;
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    input, textarea, select {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #d4af37;
+      color: #000;
+      font-weight: bold;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-
-    .modal-content button:hover {
-      background: #e0b000;
+    button:hover {
+      background-color: #b9972e;
     }
-
+    .contact-info {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.95em;
+      color: #ccc;
+    }
+    .contact-info a {
+      color: #d4af37;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Book Your Ride</h1>
+    <form action="https://formspree.io/f/meoazyoy" method="POST">
+      <input type="hidden" name="_next" value="https://set-vi.github.io/Luxury-limo/thank-you.html">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
 
-<!-- Navigation -->
-<nav aria-label="Main Navigation">
-  <div class="nav-container">
-    <button id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
-    <div id="nav-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#why-choose-us">Why Choose Us</a>
-      <a href="#book">Book Now</a>
-      <a href="#footer-terms">Terms</a>
-      <a href="#about">About Us</a>
-      <a href="#testimonials">Testimonials</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<header id="home" class="fade-in" role="banner" aria-label="Luxury Limousine Service">
-  <img src="luxury-limo.webp" alt="Luxury Limousine Service" loading="lazy" class="hero-bg">
-  <div class="hero-content">
-    <h1>Superb Executive Transportation</h1>
-    <p>Luxury that Goes the Distance</p>
-    <a href="#book" class="btn">Book Now</a>
-  </div>
-</header>
-
-<main>
-  <!-- Services Section -->
-  <section id="services" class="services fade-in">
-    <h2>Our Services</h2>
-    <div class="service-item">
-      <h3>🚘 Luxury Transfers</h3>
-      <p>Seamless private transportation for airport pickups, hotel drop-offs, or direct transfers.</p>
-    </div>
-    <div class="service-item">
-      <h3>Special Events</h3>
-      <p>Arrive in style for weddings, proms, corporate events, and other celebrations.</p>
-    </div>
-    <div class="service-item">
-      <h3>Hourly & Daily Rentals</h3>
-      <p>Flexible rentals tailored to your schedule for business or leisure.</p>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section id="why-choose-us" class="why-choose fade-in">
-    <h2>Why Choose Us</h2>
-    <div class="choose-item">
-      <h3>Always On Time</h3>
-      <p>Punctuality is our priority.</p>
-    </div>
-    <div class="choose-item">
-      <h3>Exceptional Comfort</h3>
-      <p>Experience luxurious interiors and top-tier amenities.</p>
-    </div>
-    <div class="choose-item">
-      <h3>Professional Service</h3>
-      <p>Our experienced drivers ensure a safe and refined journey.</p>
-    </div>
-  </section>
-
-  <!-- Booking Section -->
-  <section id="book" class="booking fade-in">
-    <h2>Book Your Ride</h2>
-    <form aria-label="Booking Form" id="booking-form" novalidate>
-      <!-- Date and Time -->
-      <label for="booking-date">Select a Date</label>
-      <input type="date" id="booking-date" name="booking-date" placeholder="Select booking date" required aria-required="true">
-      
-      <label for="booking-time">Select a Time</label>
-      <input type="time" id="booking-time" name="booking-time" placeholder="Select booking time" required aria-required="true">
-      
-      <!-- Service Type -->
-      <label for="service-type">Select Type of Service</label>
-      <select id="service-type" name="service-type" required aria-required="true">
-        <option value="" disabled selected>Select service type</option>
-        <option value="transfer">Transfer</option>
-        <option value="event">Event</option>
-        <option value="hourly-rental">Hourly Rental</option>
-        <option value="daily-rental">Daily Rental</option>
-      </select>
-      
-      <!-- Duration Fields -->
-      <div id="duration-field">
-        <label for="hours-requested">Hours Requested</label>
-        <input type="number" id="hours-requested" name="hours-requested" placeholder="Enter hours requested" min="2" required aria-required="true">
-      </div>
-
-      <!-- Pick-up Location -->
-      <label for="pickup">Pick-up Location</label>
-      <select id="pickup" name="pickup" required aria-required="true">
-        <option value="" disabled selected>Select pickup location</option>
-        <option value="cyril e. king airport">Cyril E. King Airport</option>
-        <option value="havensight-cruise-port">Havensight Cruise Port</option>
-        <option value="crown-bay-cruise-port">Crown Bay Cruise Port</option>
-        <option value="red hook">Red Hook</option>
-        <option value="st-john">St. John, VI</option>
-        <option value="other">Other (Specify)</option>
-      </select>
-
-      <!-- Specify Other Pick-up Location -->
-      <div id="pickup-other" style="display: none;">
-        <label for="pickup-other-text">Specify Pick-up Location</label>
-        <input type="text" id="pickup-other-text" name="pickup-other-text" placeholder="Enter pickup location">
-      </div>
-
-      <!-- Flight Information -->
-      <div id="flight-info" style="display: none;">
-        <label for="flight-number">Flight Number</label>
-        <input type="text" id="flight-number" name="flight-number" placeholder="Enter flight number">
-      </div>
-
-      <!-- Luggage Information -->
-      <div id="luggage-info" style="display: none;">
-        <label for="luggage-pieces">Number of Luggage Pieces</label>
-        <input type="number" id="luggage-pieces" name="luggage-pieces" placeholder="Enter number of luggage pieces" min="0" value="0">
-      </div>
-
-      <!-- Drop-off Location -->
-      <label for="dropoff">Drop-off Location</label>
-      <select id="dropoff" name="dropoff" required aria-required="true">
-        <option value="" disabled selected>Select dropoff location</option>
-        <option value="cyril e. king airport">Cyril E. King Airport</option>
-        <option value="havensight-cruise-port">Havensight Cruise Port</option>
-        <option value="crown-bay-cruise-port">Crown Bay Cruise Port</option>
-        <option value="red hook">Red Hook</option>
-        <option value="st-john">St. John, VI</option>
-        <option value="other">Other (Specify)</option>
-      </select>
-
-      <!-- Specify Other Drop-off Location -->
-      <div id="dropoff-other" style="display: none;">
-        <label for="dropoff-other-text">Specify Drop-off Location</label>
-        <input type="text" id="dropoff-other-text" name="dropoff-other-text" placeholder="Enter dropoff location">
-      </div>
-
-      <!-- Round Trip -->
-      <label for="round-trip">Round Trip</label>
-      <input type="checkbox" id="round-trip" name="round-trip">
-      
-      <div id="return-trip-section" style="display: none;">
-        <label for="return-date">Return Trip Date</label>
-        <input type="date" id="return-date" name="return-date" placeholder="Select return date">
-        
-        <label for="return-time">Return Trip Time</label>
-        <input type="time" id="return-time" name="return-time" placeholder="Select return time">
-      </div>
-
-      <!-- Number of Passengers -->
-      <label for="number-of-passengers">Number of Passengers</label>
-      <input type="number" id="number-of-passengers" name="number-of-passengers" placeholder="Enter number of passengers" min="1" required aria-required="true">
-      
-      <!-- Contact Information -->
-      <label for="full-name">Full Name</label>
-      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required aria-required="true">
-      
       <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number" pattern="[0-9]{10}" required aria-required="true">
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-required="true">
+      <input type="tel" id="phone" name="phone" required>
 
-      <!-- Child Seat Option -->
-      <label for="child-seat">Require Child Seat</label>
-      <input type="checkbox" id="child-seat" name="child-seat">
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required min="" onfocus="this.min=new Date().toISOString().split('T')[0]">
 
-      <!-- Special Requests -->
-      <label for="special-requests">Special Requests</label
+      <label for="time">Time of Ride</label>
+      <select id="time" name="time" required>
+        <option value="">-- Select Time --</option>
+        <option value="00:00">12:00 AM</option>
+        <option value="00:30">12:30 AM</option>
+        <option value="01:00">1:00 AM</option>
+        <option value="01:30">1:30 AM</option>
+        <option value="02:00">2:00 AM</option>
+        <option value="02:30">2:30 AM</option>
+        <option value="03:00">3:00 AM</option>
+        <option value="03:30">3:30 AM</option>
+        <option value="04:00">4:00 AM</option>
+        <option value="04:30">4:30 AM</option>
+        <option value="05:00">5:00 AM</option>
+        <option value="05:30">5:30 AM</option>
+        <option value="06:00">6:00 AM</option>
+        <option value="06:30">6:30 AM</option>
+        <option value="07:00">7:00 AM</option>
+        <option value="07:30">7:30 AM</option>
+        <option value="08:00">8:00 AM</option>
+        <option value="08:30">8:30 AM</option>
+        <option value="09:00">9:00 AM</option>
+        <option value="09:30">9:30 AM</option>
+        <option value="10:00">10:00 AM</option>
+        <option value="10:30">10:30 AM</option>
+        <option value="11:00">11:00 AM</option>
+        <option value="11:30">11:30 AM</option>
+        <option value="12:00">12:00 PM</option>
+        <option value="12:30">12:30 PM</option>
+        <option value="13:00">1:00 PM</option>
+        <option value="13:30">1:30 PM</option>
+        <option value="14:00">2:00 PM</option>
+        <option value="14:30">2:30 PM</option>
+        <option value="15:00">3:00 PM</option>
+        <option value="15:30">3:30 PM</option>
+        <option value="16:00">4:00 PM</option>
+        <option value="16:30">4:30 PM</option>
+        <option value="17:00">5:00 PM</option>
+        <option value="17:30">5:30 PM</option>
+        <option value="18:00">6:00 PM</option>
+        <option value="18:30">6:30 PM</option>
+        <option value="19:00">7:00 PM</option>
+        <option value="19:30">7:30 PM</option>
+        <option value="20:00">8:00 PM</option>
+        <option value="20:30">8:30 PM</option>
+        <option value="21:00">9:00 PM</option>
+        <option value="21:30">9:30 PM</option>
+        <option value="22:00">10:00 PM</option>
+        <option value="22:30">10:30 PM</option>
+        <option value="23:00">11:00 PM</option>
+        <option value="23:30">11:30 PM</option>
+      </select>
+
+      <label for="pickup">Pick-up Location</label>
+      <input type="text" id="pickup" name="pickup" required>
+
+      <label for="dropoff">Drop-off Location</label>
+      <input type="text" id="dropoff" name="dropoff" required>
+
+      <label for="passengers"># of Passengers</label>
+      <input type="number" id="passengers" name="passengers" min="1" max="6" required>
+
+      <label for="notes">Special Requests</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+
+      <input type="hidden" name="_subject" value="New Booking Request">
+      <p style="color: #d4af37; margin-top: 10px;">After submitting, we will confirm by phone or email.</p>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+    <div class="contact-info">
+      <p>Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
+      <p>Email: <a href="mailto:setvi@gmail.com">setvi@gmail.com</a></p>
+    </div>
+  </div>
+</body>
+</html>
