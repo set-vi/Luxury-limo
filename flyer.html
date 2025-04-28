@@ -17,31 +17,68 @@
     }
     .flyer {
       background: #111;
-      padding: 30px;
+      padding: 0;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
       max-width: 600px;
       width: 100%;
       text-align: center;
+      overflow: hidden;
     }
-    h1 {
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('png/luxury-int.png') center/cover no-repeat;
+      padding: 60px 20px;
+    }
+    .hero h1 {
       color: #d4af37;
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 2.2em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
-    .subtext {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+    .hero .subtext {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #fff;
     }
     .features {
       text-align: left;
-      margin: 20px 0;
+      margin: 20px auto;
+      padding: 0 40px;
     }
     .features li {
+      list-style: none;
       margin: 10px 0;
+      position: relative;
+      padding-left: 1.5em;
+    }
+    .features li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+    .divider {
+      width: 60%;
+      height: 2px;
+      background: rgba(212,175,55,0.9);
+      margin: 40px auto 30px;
     }
     .qr {
       margin: 30px 0;
+    }
+    .qr-caption {
+      color: #d4af37;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    .qr img {
+      margin-bottom: 20px;
+    }
+    .call-sooner, .call-more-seats {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #ccc;
+      margin: 10px 0;
     }
     .contact {
       margin-top: 30px;
@@ -51,31 +88,62 @@
       color: #d4af37;
       text-decoration: none;
     }
+    .footer-logo {
+      margin-top: 30px;
+      font-size: 0.85em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    @media print {
+      body, .flyer {
+        background: #000 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .flyer { box-shadow: none; }
+      .divider { background: #d4af37 !important; }
+    }
+    @media (max-width: 480px) {
+      .flyer { max-width: 360px; margin: 0 auto; }
+      .qr img { width: 160px; }
+    }
   </style>
 </head>
 <body>
   <div class="flyer">
-    <h1>Superb Executive Transportation</h1>
-    <div class="subtext">Luxury Transportation • Transfers • Events</div>
+    <div class="hero">
+      <h1>Superb Executive Transportation</h1>
+      <div class="subtext">More than a ride—it's a statement.</div>
+    </div>
 
     <ul class="features">
-      <li>✔️ On-Time Pickup & Drop-off</li>
-      <li>✔️ Local + Cruise Port Access</li>
-      <li>✔️ Professional Service</li>
+      <li>On-Time Pickup & Drop-off</li>
+      <li>Professional Service</li>
+      <li>Executive Comfort for 5. Seats up to 6.</li>
     </ul>
 
+    <div class="divider"></div>
+
     <div class="qr">
+      <div class="qr-caption">Reserve Instantly</div>
       <a href="https://set-vi.github.io/Luxury-limo/booking.html" target="_blank">
         <img src="png/qr-booking.png" alt="Scan to Book" width="200">
       </a>
-      <p style="margin-top: 10px;">Scan to Book Instantly</p>
+      <div class="call-more-seats">More than 6? Call to explore additional options.</div>
+      <div class="call-sooner">Need a ride sooner? If you rush, it won’t be plush. <a href="tel:3406428686" style="color:#d4af37; text-decoration:none;">Call us</a>.</div>
     </div>
 
     <div class="contact">
       📞 <a href="tel:3406428686">340-642-8686</a><br>
-      📧 <a href="mailto:setvi@gmail.com">setvi@gmail.com</a><br>
-      🌐 <a href="https://set-vi.github.io/Luxury-limo" target="_blank">set-vi.github.io/Luxury-limo</a>
+      📧 <a href="mailto:setvi@gmail.com">setvi@gmail.com</a>
+    </div>
+
+    <div class="footer-logo">
+      <img src="png/wht-van-logo.png" alt="Superb Logo" style="width: 120px; height: auto; margin-bottom: 10px;"><br>
+      <a href="https://set-vi.github.io/Luxury-limo" style="color: #d4af37; font-size: 0.9em;">https://set-vi.github.io/Luxury-limo</a>
     </div>
   </div>
 </body>
 </html>
+
