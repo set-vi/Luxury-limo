@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superb Executive Transportation Flyer</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .flyer {
+      background: #111;
+      padding: 0;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('png/luxury-int.png') center/cover no-repeat;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      color: #d4af37;
+      font-size: 2.2em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .hero .subtext {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #fff;
+    }
+    .features {
+      text-align: left;
+      margin: 20px auto;
+      padding: 0 40px;
+    }
+    .features li {
+      list-style: none;
+      margin: 10px 0;
+      position: relative;
+      padding-left: 1.5em;
+    }
+    .features li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+    .divider {
+      width: 60%;
+      height: 1px;
+      background: rgba(212,175,55,0.8);
+      margin: 20px auto;
+    }
+    .qr {
+      margin: 10px 0;
+    }
+    .qr-caption {
+      color: #d4af37;
+      font-size: 1.1em;
+    }
+    .call-sooner, .call-more-seats {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #ccc;
+      margin: 10px 0;
+    }
+    .contact {
+      margin-top: 20px;
+      font-size: 1em;
+    }
+    .contact a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .footer-logo {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    @media print {
+      body, .flyer {
+        background: #000 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .flyer { box-shadow: none; }
+      .divider { background: #d4af37 !important; }
+    }
+    @media (max-width: 480px) {
+      .flyer { max-width: 360px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="hero">
+      <h1>Superb Executive Transportation</h1>
+      <div class="subtext">Elevate your journey with point-to-point luxury rides</div>
+    </div>
+
+    <ul class="features">
+      <li>On-Time Pickup & Drop-off</li>
+      <li>Professional Service</li>
+      <li>Executive Comfort for 5. Seats up to 6.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <div class="qr">
+      <div class="qr-caption">Book Now</div>
+      <a href="https://set-vi.github.io/Luxury-limo/booking.html" target="_blank">
+        <img src="png/qr-booking.png" alt="Scan to Book" width="200">
+      </a>
+      <div class="call-more-seats">Need more seats? Call to arrange additional transportation.</div>
+      <div class="call-sooner">Need a ride sooner? If you rush, it won’t be plush. <a href="tel:3406428686" style="color:#d4af37; text-decoration:none;">Call us</a>.</div>
+    </div>
+
+    <div class="contact">
+      📞 <a href="tel:3406428686">340-642-8686</a><br>
+      📧 <a href="mailto:setvi@gmail.com">setvi@gmail.com</a>
+    </div>
+
+    <div class="footer-logo">
+      <img src="path-to-your-van-logo.png" alt="Superb Logo" style="width: 120px; height: auto; margin-bottom: 10px;"><br>
+      <a href="https://set-vi.github.io/Luxury-limo" style="color: #d4af37;">https://set-vi.github.io/Luxury-limo</a>
+    </div>
+  </div>
+</body>
+</html>
+
