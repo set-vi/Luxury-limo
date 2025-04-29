@@ -79,10 +79,9 @@
 </head>
 <body>
 <div class="container">
-  <img src="/mnt/data/wht-van-logo.png" alt="Superb Executive Transportation Logo" style="max-width: 200px; margin: 0 auto 20px; display: block;">
+  <img src="png/wht-van-logo.png" alt="Superb Executive Transportation Logo" style="max-width: 120px; margin: 0 auto 20px; display: block;">
   <h1>Book Your Ride</h1>
-  <form action="https://formspree.io/f/meoazyoy" method="POST">
-    <input type="hidden" name="_next" value="https://set-vi.github.io/Luxury-limo/thank-you.html" />
+  <form id="booking-form">
 
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required autocomplete="name" />
@@ -130,7 +129,9 @@
     <label for="passengers"># of Passengers</label>
     <input type="number" id="passengers" name="passengers" min="1" required />
     <div class="rate-note">
-      Starting at $150 for up to 4 passengers. Additional passengers $25 each.<br>Executive comfort for up to 5 passengers. 6 seats available if needed.<br>Over 6 passengers will require additional vehicle(s).
+      Starting at $150 for up to 4 passengers. Additional passengers $25 each.<br>
+      Executive comfort for up to 5 passengers. 6 seats available if needed.<br>
+      Over 6 passengers will require additional vehicle(s).
     </div>
 
     <label for="roundtrip">Round Trip?</label>
@@ -172,8 +173,6 @@
       Whether traveling solo or with a small group, your ride is crafted for executive comfort and seamless service.
     </div>
 
-    <input type="hidden" name="_subject" value="New Booking Request" />
-
     <div style="background: #222; color: #d4af37; padding: 10px; margin-top: 20px; border-radius: 5px; font-size: 0.9em;">
       <strong>Note:</strong> If requesting a ride within 3 hours, you must <a href="tel:3406428686" style="color: #d4af37; text-decoration: underline;">call us</a> directly. Immediate executive service is not guaranteed.
     </div>
@@ -182,10 +181,43 @@
   </form>
 
   <div class="contact-info">
-    <p>Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
-    <p>Email: <a href="mailto:setvi@gmail.com">setvi@gmail.com</a></p>
-    <p>Website: <a href="https://set-vi.github.io/Luxury-limo/" target="_blank">www.setvi.com</a></p>
+    <p>📞 Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
+    <p>📧 Email: <a href="mailto:setvi@gmail.com">setvi@gmail.com</a></p>
+    <p>🌐 Website: <a href="https://set-vi.github.io/Luxury-limo/" target="_blank">www.setvi.com</a></p>
   </div>
 </div>
+
+<script>
+  // AJAX submission to Formspree
+  document.getElementById('booking-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    await fetch('https://formspree.io/f/meoazyoy', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    window.location.href = 'https://set-vi.github.io/Luxury-limo/thank-you.html';
+  });
+
+  // Show/hide return trip fields
+  document.addEventListener('DOMContentLoaded', function() {
+    const roundTripSelect = document.getElementById('roundtrip');
+    const returnFields = document.getElementById('return-fields');
+
+    roundTripSelect.addEventListener('change', function() {
+      if (this.value === 'yes') {
+        returnFields.style.display = 'block';
+      } else {
+        returnFields.style.display = 'none';
+        returnFields.querySelectorAll('input, select').forEach(el => el.value = '');
+      }
+    });
+  });
+</script>
 </body>
 </html>
+
