@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Now - Superb Executive Transportation</title>
   <style>
     body {
@@ -39,6 +39,12 @@
       font-size: 1em;
       border-radius: 5px;
       border: 1px solid #ccc;
+      background: #222;
+      color: #fff;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #d4af37;
+      outline: none;
     }
     button {
       margin-top: 20px;
@@ -64,96 +70,122 @@
       color: #d4af37;
       text-decoration: none;
     }
+    .rate-note {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Book Your Ride</h1>
-    <form action="https://formspree.io/f/meoazyoy" method="POST">
-      <input type="hidden" name="_next" value="https://set-vi.github.io/Luxury-limo/thank-you.html">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+<div class="container">
+  <img src="../png/logo.png" alt="Superb Executive Transportation Logo" style="max-width: 200px; margin: 0 auto 20px; display: block;">
+  <h1>Book Your Ride</h1>
+  <form action="https://formspree.io/f/meoazyoy" method="POST">
+    <input type="hidden" name="_next" value="https://set-vi.github.io/Luxury-limo/thank-you.html" />
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required autocomplete="name" />
 
-      <label for="date">Date</label>
-      <input type="date" id="date" name="date" required min="" onfocus="this.min=new Date().toISOString().split('T')[0]">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required autocomplete="email" />
 
-      <label for="time">Time of Ride</label>
-      <select id="time" name="time" required>
-        <option value="">-- Select Time --</option>
-        <option value="00:00">12:00 AM</option>
-        <option value="00:30">12:30 AM</option>
-        <option value="01:00">1:00 AM</option>
-        <option value="01:30">1:30 AM</option>
-        <option value="02:00">2:00 AM</option>
-        <option value="02:30">2:30 AM</option>
-        <option value="03:00">3:00 AM</option>
-        <option value="03:30">3:30 AM</option>
-        <option value="04:00">4:00 AM</option>
-        <option value="04:30">4:30 AM</option>
-        <option value="05:00">5:00 AM</option>
-        <option value="05:30">5:30 AM</option>
-        <option value="06:00">6:00 AM</option>
-        <option value="06:30">6:30 AM</option>
-        <option value="07:00">7:00 AM</option>
-        <option value="07:30">7:30 AM</option>
-        <option value="08:00">8:00 AM</option>
-        <option value="08:30">8:30 AM</option>
-        <option value="09:00">9:00 AM</option>
-        <option value="09:30">9:30 AM</option>
-        <option value="10:00">10:00 AM</option>
-        <option value="10:30">10:30 AM</option>
-        <option value="11:00">11:00 AM</option>
-        <option value="11:30">11:30 AM</option>
-        <option value="12:00">12:00 PM</option>
-        <option value="12:30">12:30 PM</option>
-        <option value="13:00">1:00 PM</option>
-        <option value="13:30">1:30 PM</option>
-        <option value="14:00">2:00 PM</option>
-        <option value="14:30">2:30 PM</option>
-        <option value="15:00">3:00 PM</option>
-        <option value="15:30">3:30 PM</option>
-        <option value="16:00">4:00 PM</option>
-        <option value="16:30">4:30 PM</option>
-        <option value="17:00">5:00 PM</option>
-        <option value="17:30">5:30 PM</option>
-        <option value="18:00">6:00 PM</option>
-        <option value="18:30">6:30 PM</option>
-        <option value="19:00">7:00 PM</option>
-        <option value="19:30">7:30 PM</option>
-        <option value="20:00">8:00 PM</option>
-        <option value="20:30">8:30 PM</option>
-        <option value="21:00">9:00 PM</option>
-        <option value="21:30">9:30 PM</option>
-        <option value="22:00">10:00 PM</option>
-        <option value="22:30">10:30 PM</option>
-        <option value="23:00">11:00 PM</option>
-        <option value="23:30">11:30 PM</option>
-      </select>
+    <label for="confirm-email">Confirm Email</label>
+    <input type="email" id="confirm-email" name="confirm-email" required autocomplete="email" />
 
-      <label for="pickup">Pick-up Location</label>
-      <input type="text" id="pickup" name="pickup" required>
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" required />
 
-      <label for="dropoff">Drop-off Location</label>
-      <input type="text" id="dropoff" name="dropoff" required>
+    <label for="time">Time of Service</label>
+    <select id="time" name="time" required>
+      <option value="">-- Select Time --</option>
+      <option value="05:00">5:00 AM</option>
+      <option value="06:00">6:00 AM</option>
+      <option value="07:00">7:00 AM</option>
+      <option value="08:00">8:00 AM</option>
+      <option value="09:00">9:00 AM</option>
+      <option value="10:00">10:00 AM</option>
+      <option value="11:00">11:00 AM</option>
+      <option value="12:00">12:00 PM</option>
+      <option value="13:00">1:00 PM</option>
+      <option value="14:00">2:00 PM</option>
+      <option value="15:00">3:00 PM</option>
+      <option value="16:00">4:00 PM</option>
+      <option value="17:00">5:00 PM</option>
+      <option value="18:00">6:00 PM</option>
+      <option value="19:00">7:00 PM</option>
+      <option value="20:00">8:00 PM</option>
+      <option value="21:00">9:00 PM</option>
+      <option value="22:00">10:00 PM</option>
+      <option value="23:00">11:00 PM</option>
+      <option value="00:00">12:00 AM (Midnight)</option>
+    </select>
 
-      <label for="passengers"># of Passengers</label>
-      <input type="number" id="passengers" name="passengers" min="1" max="6" required>
+    <label for="pickup">Pick-up Location</label>
+    <input type="text" id="pickup" name="pickup" required autocomplete="address-line1" />
 
-      <label for="notes">Special Requests</label>
-      <textarea id="notes" name="notes" rows="3"></textarea>
+    <label for="dropoff">Drop-off Location</label>
+    <input type="text" id="dropoff" name="dropoff" required autocomplete="address-line2" />
 
-      <input type="hidden" name="_subject" value="New Booking Request">
-      <p style="color: #d4af37; margin-top: 10px;">After submitting, we will confirm by phone or email.</p>
-
-      <button type="submit">Submit Booking</button>
-    </form>
-    <div class="contact-info">
-      <p>Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
-      <p>Email: <a href="mailto:setvi@gmail.com">setvi@gmail.com</a></p>
+    <label for="passengers"># of Passengers</label>
+    <input type="number" id="passengers" name="passengers" min="1" required />
+    <div class="rate-note">
+      Starting at $150 for up to 4 passengers. Additional passengers $25 each.<br>Executive comfort for up to 5 passengers. 6 seats available if needed.<br>Over 6 passengers will require additional vehicle(s).
     </div>
+
+    <label for="roundtrip">Round Trip?</label>
+    <select id="roundtrip" name="roundtrip">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <div id="return-fields" style="display: none;">
+      <label for="return-date">Return Date</label>
+      <input type="date" id="return-date" name="return-date" />
+
+      <label for="return-time">Return Time</label>
+      <select id="return-time" name="return-time">
+        <option value="">-- Select Time --</option>
+        <option value="13:00">1:00 PM</option>
+        <option value="14:00">2:00 PM</option>
+        <option value="15:00">3:00 PM</option>
+        <option value="16:00">4:00 PM</option>
+        <option value="17:00">5:00 PM</option>
+        <option value="18:00">6:00 PM</option>
+        <option value="19:00">7:00 PM</option>
+        <option value="20:00">8:00 PM</option>
+        <option value="21:00">9:00 PM</option>
+        <option value="22:00">10:00 PM</option>
+        <option value="23:00">11:00 PM</option>
+        <option value="00:00">12:00 AM (Midnight)</option>
+      </select>
+    </div>
+
+    <label for="notes">Special Requests</label>
+    <textarea id="notes" name="notes" rows="3"></textarea>
+
+    <div style="margin-top: 10px; font-size: 0.85em; color: #ccc;">
+      <strong>Note:</strong> Child car seats are not provided. Customers must bring and properly install their own child safety seats as required by law.
+    </div>
+
+    <div style="background: #111; color: #ccc; padding: 10px; margin-top: 20px; border-radius: 5px; font-size: 0.9em;">
+      Whether traveling solo or with a small group, your ride is crafted for executive comfort and seamless service.
+    </div>
+
+    <input type="hidden" name="_subject" value="New Booking Request" />
+
+    <div style="background: #222; color: #d4af37; padding: 10px; margin-top: 20px; border-radius: 5px; font-size: 0.9em;">
+      <strong>Note:</strong> If requesting a ride within 3 hours, you must <a href="tel:3406428686" style="color: #d4af37; text-decoration: underline;">call us</a> directly. Immediate executive service is not guaranteed.
+    </div>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+  <div class="contact-info">
+    <p>Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
+    <p>Email: <a href="mailto:setvi@gmail.com">setvi@gmail.com</a></p>
+    <p>Website: <a href="https://set-vi.github.io/Luxury-limo/" target="_blank">www.setvi.com</a></p>
   </div>
+</div>
 </body>
 </html>
