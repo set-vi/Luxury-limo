@@ -70,11 +70,6 @@
       color: #d4af37;
       text-decoration: none;
     }
-    .rate-note {
-      font-size: 0.9em;
-      color: #ccc;
-      margin-top: 5px;
-    }
   </style>
 </head>
 <body>
@@ -82,7 +77,6 @@
   <img src="png/wht-van-logo.png" alt="Superb Executive Transportation Logo" style="max-width: 120px; margin: 0 auto 20px; display: block;">
   <h1>Book Your Ride</h1>
   <form id="booking-form">
-
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required autocomplete="name" />
 
@@ -93,7 +87,7 @@
     <input type="email" id="confirm-email" name="confirm-email" required autocomplete="email" />
 
     <label for="date">Date</label>
-    <input type="date" id="date" name="date" required />
+    <input type="date" id="date" name="date" required min="" onfocus="this.min=new Date().toISOString().split('T')[0]" />
 
     <label for="time">Time of Service</label>
     <select id="time" name="time" required>
@@ -119,6 +113,7 @@
       <option value="23:00">11:00 PM</option>
       <option value="00:00">12:00 AM (Midnight)</option>
     </select>
+    
 
     <label for="pickup">Pick-up Location</label>
     <input type="text" id="pickup" name="pickup" required autocomplete="address-line1" />
@@ -127,12 +122,12 @@
     <input type="text" id="dropoff" name="dropoff" required autocomplete="address-line2" />
 
     <label for="passengers"># of Passengers</label>
-    <input type="number" id="passengers" name="passengers" min="1" required />
-    <div class="rate-note">
-      Starting at $150 for up to 4 passengers. Additional passengers $25 each.<br>
-      Executive comfort for up to 5 passengers. 6 seats available if needed.<br>
-      Over 6 passengers will require additional vehicle(s).
-    </div>
+    <input type="number" id="passengers" name="passengers" min="1" inputmode="numeric" required placeholder="Enter number of passengers" />
+<div style="font-size: 0.85em; color: #bbb; margin-top: 6px;">
+  Rates start at $150 for up to 4 passengers. Each additional passenger is $25.<br>
+  We offer seating for up to 6 guests in executive comfort.<br>
+  Groups larger than 6 will require additional vehicle arrangements.
+</div>
 
     <label for="roundtrip">Round Trip?</label>
     <select id="roundtrip" name="roundtrip">
@@ -165,30 +160,17 @@
     <label for="notes">Special Requests</label>
     <textarea id="notes" name="notes" rows="3"></textarea>
 
-    <div style="margin-top: 10px; font-size: 0.85em; color: #ccc;">
-      <strong>Note:</strong> Child car seats are not provided. Customers must bring and properly install their own child safety seats as required by law.
-    </div>
-
-    <div style="background: #111; color: #ccc; padding: 10px; margin-top: 20px; border-radius: 5px; font-size: 0.9em;">
-      Whether traveling solo or with a small group, your ride is crafted for executive comfort and seamless service.
-    </div>
-
-    <div style="background: #222; color: #d4af37; padding: 10px; margin-top: 20px; border-radius: 5px; font-size: 0.9em;">
-      <strong>Note:</strong> If requesting a ride within 3 hours, you must <a href="tel:3406428686" style="color: #d4af37; text-decoration: underline;">call us</a> directly. Immediate executive service is not guaranteed.
-    </div>
-
     <button type="submit">Submit Booking</button>
   </form>
 
   <div class="contact-info">
-    <p>📞 Call or Text: <a href="tel:3406428686">340-642-8686</a></p>
-    <p>📧 Email: <a href="mailto:setvi@gmail.com">setlimovi@gmail.com</a></p>
-    <p>🌐 Website: <a href="https://set-vi.github.io/Luxury-limo/" target="_blank">https://set-vi.github.io/Luxury-limo/</a></p>
-  </div>
+  <p>📞 <a href="tel:3406428686">340-642-8686</a></p>
+  <p>📧 <a href="mailto:setlimovi@gmail.com">setlimovi@gmail.com</a></p>
+  <p>🌐 <a href="https://set-vi.github.io/Luxury-limo/" target="_blank">set-vi.github.io/Luxury-limo</a></p>
+</div>
 </div>
 
 <script>
-  // AJAX submission to Formspree with validation check
   document.getElementById('booking-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const form = e.target;
@@ -209,12 +191,13 @@
     window.location.href = 'https://set-vi.github.io/Luxury-limo/thank-you.html';
   });
 
-  // Show/hide return trip fields
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const roundTripSelect = document.getElementById('roundtrip');
     const returnFields = document.getElementById('return-fields');
+    const returnTime = document.getElementById('return-time');
+    const serviceTime = document.getElementById('time');
 
-    roundTripSelect.addEventListener('change', function() {
+    roundTripSelect.addEventListener('change', function () {
       if (this.value === 'yes') {
         returnFields.style.display = 'block';
       } else {
@@ -222,8 +205,51 @@
         returnFields.querySelectorAll('input, select').forEach(el => el.value = '');
       }
     });
+
+    function disablePastTimes(select, bufferMinutes = 180) {
+      const now = new Date();
+      const reference = (now.getHours() * 60 + now.getMinutes()) + bufferMinutes;
+
+      Array.from(select.options).forEach(option => {
+        const val = option.value;
+        if (!val || !val.includes(':')) return;
+
+        let [h, m] = val.split(':').map(Number);
+        if (h === 0 && m === 0) h = 24;
+
+        const optionTime = h * 60 + m;
+        option.disabled = optionTime <= reference;
+      });
+    }
+
+    disablePastTimes(serviceTime);
+
+    serviceTime.addEventListener('change', function () {
+      const selectedVal = this.value;
+      if (!selectedVal || !selectedVal.includes(':')) return;
+
+      let [h, m] = selectedVal.split(':').map(Number);
+      if (h === 0 && m === 0) h = 24;
+
+      const selectedMinutes = h * 60 + m;
+      disablePastTimes(returnTime, selectedMinutes);
+    });
   });
+  const passengerInput = document.getElementById('passengers');
+const passengerNote = document.createElement('div');
+passengerNote.id = 'passenger-warning';
+passengerNote.style.cssText = 'font-size: 0.8em; color: #d4af37; margin-top: 6px; display: none;';
+passengerNote.textContent = 'Requests for more than 6 passengers will be reviewed. We’ll follow up to confirm vehicle accommodations.';
+passengerInput.parentNode.insertBefore(passengerNote, passengerInput.nextSibling);
+
+passengerInput.addEventListener('input', function () {
+  const warning = document.getElementById('passenger-warning');
+  if (this.value > 6) {
+    warning.style.display = 'block';
+  } else {
+    warning.style.display = 'none';
+  }
+});
 </script>
 </body>
 </html>
-
